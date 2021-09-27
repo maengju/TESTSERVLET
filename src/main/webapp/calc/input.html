@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+div {
+	font-size: 5pt;
+	color: red;
+	font-weight: bold;
+}
+</style>
+
+<script type="text/javascript">
+	function calc() {
+
+		document.getElementById("myXDiv").innerText = ""
+		document.getElementById("myYDiv").innerText = ""
+		if (document.CalcForm.myX.value == "") {
+
+			document.getElementById("myXDiv").innerText = "x값을 입력하시오"
+		} else if (document.CalcForm.myY.value == "") {
+
+			document.getElementById("myYDiv").innerText = "y값을 입력하시오"
+		} else {
+			document.CalcForm.submit();
+		}
+	}
+</script>
+
+
+</head>
+<body>
+
+	<form name="CalcForm" method="get"
+		action="http://localhost:8080/testServlet/CalcServlet">
+		<table border="1" cellspacing="0" cellpadding="5">
+			<tr>
+				<td width="70" align="center">X</td>
+				<td><input type="text" name="myX" id="myX" size="8"
+					maxlength="10" placeholder="x값을 입력하시오">
+					<div id="myXDiv"></div></td>
+			</tr>
+			<tr>
+				<td width="70" align="center">Y</td>
+				<td><input type="text" name="myY" id="myY" size="8"
+					maxlength="10" placeholder="y값을 입력하시오">
+					<div id="myYDiv"></div></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button" value="계산"
+					onclick="calc()"> <input type="reset" value="취소"></td>
+			</tr>
+
+		</table>
+	</form>
+
+
+</body>
+</html>
